@@ -59,7 +59,7 @@ export class OHandler {
               try {
                 this.config.onFinish(this, res);
                 const data = await res.json();
-                return data[this.config.fragment] || data;
+                return {data: data[this.config.fragment], response: res } || {data, response: res };
               } catch (ex) {
                 return res;
               }
